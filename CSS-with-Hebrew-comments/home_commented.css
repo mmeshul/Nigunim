@@ -1,0 +1,148 @@
+.home-hero {
+    min-height: 72vh;
+    /* גובה מינימלי של 72% מגובה המסך */
+    display: flex;
+    /* מאפשר להשתמש ב-Flexbox באזור הראשי */
+    align-items: center;
+    /* ממרכז את התוכן לגובה */
+    background: linear-gradient(90deg, rgba(17, 27, 45, .94), rgba(17, 27, 45, .62)), url('../assets/images/jewish-cover.png') center/cover;
+    /* מציג תמונת רקע ועליה שכבת צבע כהה הדרגתית */
+    color: white;
+    /* מגדיר את הטקסט ללבן */
+}
+
+.hero-content {
+    width: min(1120px, 92%);
+    /* רוחב עד 1120px או 92% מהמסך */
+    margin: auto;
+    /* ממרכז את האזור */
+    max-width: 720px;
+    /* מגביל את רוחב התוכן ל-720px */
+    margin-right: auto;
+    /* ממרכז את האזור אופקית */
+    margin-left: auto;
+    /* ממרכז את האזור אופקית */
+    padding: 70px 0;
+    /* רווח למעלה ולמטה */
+}
+
+.hero-content h1 {
+    font-size: clamp(2.7rem, 8vw, 6rem);
+    /* גודל כותרת רספונסיבי */
+    line-height: 1.02;
+    /* מצמצם את הרווח בין שורות הכותרת */
+    margin: .12em 0;
+    /* רווח קטן מעל ומתחת לכותרת */
+}
+
+.hero-actions {
+    display: flex;
+    /* מסדר את הכפתורים בשורה */
+    gap: 12px;
+    /* רווח בין הכפתורים */
+    flex-wrap: wrap;
+    /* מאפשר לכפתורים לעבור לשורה נוספת */
+    margin-top: 28px;
+    /* רווח מעל הכפתורים */
+}
+
+.hero-actions .secondary {
+    color: white;
+    /* משנה את טקסט הכפתור המשני ללבן */
+    border-color: white;
+    /* משנה את המסגרת ללבן */
+}
+
+.category-grid {
+    display: grid;
+    /* משתמש ב-CSS Grid לסידור הכרטיסים */
+    grid-template-columns: repeat(2, 1fr);
+    /* יוצר שתי עמודות שוות */
+    gap: 26px;
+    /* רווח בין הכרטיסים */
+}
+
+.category-card {
+    position: relative;
+    /* מאפשר למקם אלמנטים שבתוכו ביחס לכרטיס */
+    overflow: hidden;
+    /* מסתיר חלקים שחורגים מגבולות הכרטיס */
+    border-radius: 26px;
+    /* מעגל את פינות הכרטיס */
+    min-height: 430px;
+    /* גובה מינימלי של הכרטיס */
+    box-shadow: var(--shadow);
+    /* מוסיף את הצל שהוגדר ב-common.css */
+}
+
+.category-card img {
+    width: 100%;
+    /* התמונה תתפוס את כל רוחב הכרטיס */
+    height: 100%;
+    /* התמונה תתפוס את כל גובה הכרטיס */
+    object-fit: cover;
+    /* ממלא את האזור בלי לעוות את התמונה */
+    transition: .45s;
+    /* יוצר מעבר חלק באפקט ההגדלה */
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+    /* מגדיל מעט את התמונה במעבר עכבר */
+}
+
+.category-content {
+    position: absolute;
+    /* ממקם את התוכן מעל התמונה */
+    inset: auto 0 0;
+    /* מצמיד את התוכן לתחתית הכרטיס ולשני הצדדים */
+    padding: 28px;
+    /* רווח פנימי מסביב לטקסט */
+    color: white;
+    /* טקסט לבן */
+    background: linear-gradient(transparent, rgba(0, 0, 0, .88));
+    /* רקע הדרגתי משקוף לשחור לקריאות הטקסט */
+}
+
+.category-content h2 {
+    font-size: 2rem;
+    /* מגדיל את כותרת הקטגוריה */
+    margin: 0;
+    /* מבטל את הרווח האוטומטי של הכותרת */
+}
+
+.features {
+    display: flex;
+    /* מסדר את כרטיסי המאפיינים בשורה */
+    gap: 18px;
+    /* רווח בין הכרטיסים */
+    flex-wrap: wrap;
+    /* מאפשר מעבר לשורה חדשה כשאין מקום */
+}
+
+.feature {
+    flex: 1 1 210px;
+    /* מאפשר לכרטיס לגדול, להתכווץ ומגדיר בסיס של 210px */
+    background: var(--paper);
+    /* רקע בהיר */
+    padding: 24px;
+    /* רווח פנימי */
+    border-radius: 20px;
+    /* פינות מעוגלות */
+    border-top: 4px solid var(--gold);
+    /* קו זהב בחלק העליון */
+}
+
+@media(max-width:680px) {
+
+    /* מופעל במסכים ברוחב 680px ומטה */
+    .category-grid {
+        grid-template-columns: 1fr;
+        /* הופך את שתי העמודות לעמודה אחת */
+    }
+
+    .category-card {
+        min-height: 340px;
+        /* מקטין את גובה הכרטיס במסך קטן */
+    }
+}

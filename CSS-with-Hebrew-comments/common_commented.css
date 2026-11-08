@@ -1,0 +1,372 @@
+:root {
+    --ink: #17243a;
+    /* צבע כחול כהה שמשמש בעיקר לטקסט ורקעים */
+    --cream: #fbf6ec;
+    /* צבע קרם לרקע הכללי של האתר */
+    --gold: #c79a43;
+    /* צבע זהב להדגשות */
+    --wine: #6e2135;
+    /* צבע בורדו לכפתורים ואלמנטים בולטים */
+    --paper: #fffdf8;
+    /* צבע בהיר לכרטיסים */
+    --muted: #6f7480;
+    /* צבע אפור לטקסט משני */
+    --shadow: 0 14px 34px rgba(23, 36, 58, .12);
+    /* צל קבוע לכרטיסים */
+}
+
+* {
+    box-sizing: border-box;
+    /* גורם ל-padding ול-border להיכלל בתוך הרוחב והגובה */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* יוצר גלילה חלקה בקישורים שעוברים למקום אחר באותו דף */
+}
+
+body {
+    margin: 0;
+    /* מבטל את הרווח האוטומטי שהדפדפן מוסיף מסביב לדף */
+    direction: rtl;
+    /* מגדיר כתיבה מימין לשמאל */
+    font-family: Arial, "Noto Sans Hebrew", sans-serif;
+    /* מגדיר את סוג הגופן */
+    color: var(--ink);
+    /* מגדיר את צבע הטקסט הכללי */
+    background: var(--cream);
+    /* מגדיר את צבע הרקע של האתר */
+    line-height: 1.65;
+    /* מגדיר מרווח בין שורות הטקסט */
+}
+
+a {
+    color: inherit;
+    /* גורם לקישור לקבל את צבע הטקסט של האלמנט שבו הוא נמצא */
+    text-decoration: none;
+    /* מוריד את הקו התחתון של הקישורים */
+}
+
+img {
+    max-width: 100%;
+    /* מונע מתמונה להיות רחבה יותר מהאזור שלה */
+    display: block;
+    /* מציג את התמונה כאלמנט בלוק ומונע רווח קטן מתחתיה */
+}
+
+.site-header {
+    position: sticky;
+    /* משאיר את ה-Header מוצמד בזמן גלילה */
+    top: 0;
+    /* מצמיד אותו לחלק העליון של המסך */
+    z-index: 20;
+    /* גורם ל-Header להופיע מעל אלמנטים אחרים */
+    background: rgba(255, 253, 248, .94);
+    /* רקע בהיר עם מעט שקיפות */
+    backdrop-filter: blur(10px);
+    /* מטשטש מעט את מה שנמצא מאחורי ה-Header */
+    border-bottom: 1px solid rgba(199, 154, 67, .26);
+    /* מוסיף קו דק בתחתית ה-Header */
+}
+
+.header-inner {
+    /* width: min(1120px, 92%);  */
+    width: 92%;
+    /* הרוחב יהיה 92% מהמסך אך לא יותר מ-1120px */
+    min-height: 76px;
+    /* מגדיר גובה מינימלי */
+    margin: auto;
+    /* ממרכז את האזור לרוחב */
+    display: flex;
+    /* מסדר את הלוגו והתפריט בשורה בעזרת Flexbox */
+    align-items: center;
+    /* ממרכז את האלמנטים לגובה */
+    justify-content: space-between;
+    /* מפזר את האלמנטים עם רווח ביניהם */
+    gap: 24px;
+    /* רווח בין האלמנטים */
+}
+
+.logo {
+    display: flex;
+    /* מסדר את סמל הלוגו והמלל בשורה */
+    align-items: center;
+    /* ממרכז אותם לגובה */
+    gap: 10px;
+    /* מוסיף רווח בין הסמל למלל */
+    font-weight: 800;
+    /* הופך את הטקסט למודגש מאוד */
+    font-size: 30px;
+    /* מגדיל את גודל הטקסט של הלוגו */
+    color: var(--wine);
+    /* מגדיר ללוגו צבע בורדו */
+}
+
+.logo-mark {
+    display: grid;
+    /* משתמש ב-Grid כדי למרכז את הסמל */
+    place-items: center;
+    /* ממרכז את הסמל גם לרוחב וגם לגובה */
+    width: 42px;
+    /* רוחב העיגול */
+    height: 42px;
+    /* גובה העיגול */
+    border-radius: 25%;
+    /* הופך את האלמנט לעיגול */
+    background: var(--ink);
+    /* צבע הרקע של העיגול */
+    color: var(--gold);
+    /* צבע תו המוזיקה */
+    font-size: 1.45rem;
+    /* גודל תו המוזיקה */
+    animation: pulse 3s ease-in-out infinite;
+    /* מפעיל את אנימציית pulse  כל 3 שניות ללא הפסקה מתתחיל לאט וממשיך מהר ומסתיים לאט*/
+}
+
+.nav-list {
+    display: flex;
+    /* מסדר את פריטי התפריט בשורה */
+    align-items: center;
+    /* ממרכז את הפריטים לגובה */
+    gap: 8px;
+    /* רווח בין פריטי התפריט */
+    list-style: none;
+    /* מוריד את הנקודות של רשימת ul */
+    margin: 0;
+    /* מבטל margin אוטומטי */
+    padding: 0;
+    /* מבטל padding אוטומטי */
+    flex-wrap: wrap;
+    /* מאפשר לפריטים לעבור לשורה חדשה כשאין מקום */
+}
+
+.nav-link {
+    display: block;
+    /* מאפשר לתת לקישור padding בצורה נוחה */
+    padding: 9px 12px;
+    /* רווח פנימי בתוך כל קישור */
+    border-radius: 999px;
+    /* יוצר קצוות עגולים מאוד */
+    font-weight: 700;
+    /* טקסט מודגש */
+    font-size: .93rem;
+    /* גודל הטקסט */
+    transition: .25s;
+    /* יוצר מעבר חלק בשינויי העיצוב */
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.active {
+    background: var(--ink);
+    /* רקע כחול כהה לקישור פעיל או במעבר עכבר */
+    color: white;
+    /* הופך את הטקסט ללבן */
+    transform: translateY(-2px);
+    /* מעלה את הקישור 2px למעלה */
+}
+
+main {
+    min-height: 65vh;
+    /* נותן לתוכן הראשי גובה מינימלי של 65% מגובה המסך */
+}
+
+.page-hero {
+    padding: 70px 4%;
+    /* מוסיף רווח פנימי למעלה/למטה ומהצדדים */
+    text-align: center;
+    /* ממרכז את הטקסט */
+    background: linear-gradient(135deg, var(--ink), #2e4261);
+    /* יוצר רקע הדרגתי בשני גווני כחול */
+    color: white;
+    /* מגדיר את הטקסט ללבן */
+}
+
+.page-hero h1 {
+    margin: 10px 0;
+    /* רווח קטן מעל ומתחת לכותרת */
+    font-size: clamp(2rem, 6vw, 4rem);
+    /* גודל כותרת רספונסיבי בין 2rem ל-4rem */
+    /* משנה את הוגדל לפלאפון */
+}
+
+.eyebrow {
+    color: var(--gold);
+    /* צבע זהב לטקסט הקטן שמעל הכותרת */
+    font-weight: 800;
+    /* טקסט מודגש מאוד */
+    letter-spacing: .08em;
+    /* מוסיף מעט רווח בין האותיות */
+}
+
+.container {
+    width: 92%;
+    /* רוחב של 92% אך לא יותר מ-1120px */
+    margin: auto;
+    /* ממרכז את התוכן */
+}
+
+.section {
+    padding: 72px 0;
+    /* מוסיף רווח למעלה ולמטה של כל section */
+}
+
+.section-title {
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+    /* גודל כותרת שמתאים את עצמו למסך */
+    margin: 0 0 12px;
+    /* מוסיף רווח של 12px מתחת לכותרת */
+}
+
+.lead {
+    max-width: 700px;
+    /* מגביל את רוחב הטקסט כדי שיהיה נוח לקריאה */
+    color: var(--muted);
+    /* צבע אפור לטקסט משני */
+    font-size: 1.08rem;
+    /* מגדיל מעט את הטקסט */
+}
+
+.btn {
+    display: inline-flex;
+    /* מאפשר סידור פנימי עם Flex בלי לתפוס שורה שלמה */
+    align-items: center;
+    /* ממרכז את תוכן הכפתור לגובה */
+    justify-content: center;
+    /* ממרכז את תוכן הכפתור לרוחב */
+    gap: 8px;
+    /* רווח בין פריטים בתוך הכפתור */
+    padding: 12px 20px;
+    /* רווח פנימי בכפתור */
+    border: 0;
+    /* מוריד את המסגרת הרגילה */
+    border-radius: 999px;
+    /* יוצר כפתור עגול בקצוות */
+    background: var(--wine);
+    /* רקע בורדו */
+    color: white;
+    /* טקסט לבן */
+    font: inherit;
+    /* משתמש בהגדרות הפונט של האלמנט שמכיל אותו */
+    font-weight: 800;
+    /* טקסט מודגש */
+    cursor: pointer;
+    /* מציג סמן של יד כשעוברים על הכפתור */
+    transition: .25s;
+    /* מעבר חלק לאפקט hover */
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: translateY(-3px);
+    /* מזיז את הכפתור מעט למעלה */
+    box-shadow: 0 10px 20px rgba(110, 33, 53, .22);
+    /* מוסיף צל לכפתור */
+}
+
+.btn.secondary {
+    background: transparent;
+    /* רקע שקוף לכפתור משני */
+    color: var(--ink);
+    /* טקסט כחול כהה */
+    border: 2px solid var(--ink);
+    /* מסגרת כחולה */
+}
+
+.site-footer {
+    /* כל הזכויות שמורות */
+    background: #111b2d;
+    /* רקע כחול כהה ל-Footer */
+    color: white;
+    /* טקסט לבן */
+    padding: 34px 4%;
+    /* רווח פנימי */
+}
+
+.footer-inner {
+    width: min(1120px, 92%);
+    /* מגביל את רוחב התוכן של ה-Footer */
+    margin: auto;
+    /* ממרכז את התוכן */
+    display: flex;
+    /* מסדר את התוכן בשורה */
+    justify-content: space-between;
+    /* יוצר רווח בין שני צדי ה-Footer */
+    align-items: center;
+    /* ממרכז לגובה */
+    gap: 20px;
+    /* רווח בין האלמנטים */
+    flex-wrap: wrap;
+    /* מאפשר מעבר לשורה נוספת במסך קטן */
+}
+
+/* .footer-links {
+    display: flex;
+    /* מסדר את הקישורים בשורה */
+/* gap: 18px; */
+/* רווח בין הקישורים */
+/* list-style: none; */
+/* מוריד את נקודות הרשימה */
+/* margin: 0; */
+/* מבטל margin רגיל */
+/* padding: 0; */
+/* מבטל padding רגיל */
+/* } */
+
+/* .footer-links a:hover {
+    text-decoration: underline;
+    /* מוסיף קו תחתון במעבר עכבר */
+/* color: var(--gold); */
+/* משנה את צבע הקישור לזהב */
+/* } */
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    /* מוסיף מסגרת זהב לאלמנט שמקבל פוקוס מהמקלדת */
+    outline-offset: 3px;
+    /* יוצר רווח בין המסגרת לאלמנט */
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.08) rotate(-5deg);
+        /* באמצע האנימציה מגדיל ומסובב מעט את הלוגו */
+    }
+}
+
+@media(max-width:780px) {
+
+    /* העיצובים הבאים יופעלו במסכים ברוחב 780px ומטה */
+    .header-inner {
+        padding: 12px 0;
+        /* מוסיף רווח פנימי ל-Header במסך קטן */
+        align-items: flex-start;
+        /* מיישר את האלמנטים לתחילת הציר */
+        flex-direction: column;
+        /* מעביר את הלוגו והתפריט לעמודה במקום שורה */
+    }
+
+
+
+    .nav-list {
+        gap: 4px;
+        /* מקטין את הרווח בין קישורי התפריט */
+    }
+
+    .nav-link {
+        padding: 7px 9px;
+        /* מקטין את הרווח הפנימי של הקישורים */
+        font-size: .86rem;
+        /* מקטין מעט את הטקסט */
+    }
+
+    .section {
+        padding: 52px 0;
+        /* מקטין את הרווח האנכי של sections */
+    }
+
+    .page-hero {
+        padding: 48px 4%;
+        /* מקטין את הרווח הפנימי באזור הכותרת */
+    }
+}

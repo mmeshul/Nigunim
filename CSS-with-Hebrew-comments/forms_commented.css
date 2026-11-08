@@ -1,0 +1,164 @@
+.form-wrap {
+    display: grid;
+    /* מסדר את אזור הטופס בעזרת CSS Grid */
+    grid-template-columns: .8fr 1.2fr;
+    /* יוצר שתי עמודות, כשהעמודה השנייה מעט רחבה יותר */
+    gap: 32px;
+    /* רווח בין העמודות */
+    align-items: start;
+    /* מיישר את התוכן לתחילת האזור */
+}
+
+.info-card,
+.join-form,
+.about-card,
+.success-card {
+    background: var(--paper);
+    /* נותן לכרטיסים רקע בהיר */
+    padding: clamp(24px, 5vw, 42px);
+    /* רווח פנימי רספונסיבי בין 24px ל-42px */
+    border-radius: 26px;
+    /* פינות מעוגלות */
+    box-shadow: var(--shadow);
+    /* מוסיף צל לכרטיסים */
+}
+
+.benefits {
+    padding-right: 20px;
+    /* מוסיף רווח פנימי מצד ימין לרשימה */
+}
+
+.benefits li {
+    margin: 12px 0;
+    /* מוסיף רווח מעל ומתחת לכל פריט ברשימה */
+}
+
+.form-grid {
+    display: grid;
+    /* מסדר את שדות הטופס באמצעות Grid */
+    grid-template-columns: repeat(2, 1fr);
+    /* יוצר שתי עמודות שוות */
+    gap: 18px;
+    /* רווח בין שדות הטופס */
+}
+
+.field {
+    display: flex;
+    /* משתמש ב-Flexbox לכל שדה */
+    flex-direction: column;
+    /* מציג label מעל שדה הקלט */
+    gap: 7px;
+    /* רווח בין הכותרת לשדה */
+}
+
+.field.full {
+    grid-column: 1 / -1;
+    /* גורם לשדה לתפוס את כל רוחב ה-Grid */
+}
+
+.field label {
+    font-weight: 800;
+    /* מדגיש את כותרות השדות */
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    /* השדה תופס את כל הרוחב הזמין */
+    padding: 12px;
+    /* רווח פנימי בתוך השדה */
+    border: 1px solid #c9c2b4;
+    /* מסגרת דקה */
+    border-radius: 10px;
+    /* פינות מעוגלות */
+    background: white;
+    /* רקע לבן */
+    font: inherit;
+    /* משתמש באותו גופן של שאר האתר */
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--gold);
+    /* משנה את צבע המסגרת לזהב כשהשדה פעיל */
+    outline: 3px solid rgba(199, 154, 67, .2);
+    /* מוסיף מסגרת חיצונית עדינה סביב השדה הפעיל */
+}
+
+.form-actions {
+    display: flex;
+    /* מסדר את כפתורי הטופס בשורה */
+    gap: 12px;
+    /* רווח בין הכפתורים */
+    margin-top: 22px;
+    /* רווח מעל הכפתורים */
+    flex-wrap: wrap;
+    /* מאפשר לכפתורים לעבור שורה במסך קטן */
+}
+
+.success-layout {
+    display: grid;
+    /* משתמש ב-Grid לצורך מרכוז */
+    place-items: center;
+    /* ממרכז את התוכן לרוחב ולגובה */
+    min-height: 65vh;
+    /* גובה מינימלי של 65% מגובה המסך */
+    text-align: center;
+    /* ממרכז את הטקסט */
+}
+
+.success-icon {
+    font-size: 4rem;
+    /* מגדיל את סמל ההצלחה */
+}
+
+.about-grid {
+    display: grid;
+    /* מסדר את כרטיסי האודות ב-Grid */
+    grid-template-columns: 1fr 1fr;
+    /* יוצר שתי עמודות שוות */
+    gap: 24px;
+    /* רווח בין הכרטיסים */
+}
+
+.values {
+    display: flex;
+    /* מסדר את הערכים בשורה */
+    gap: 16px;
+    /* רווח בין הערכים */
+    flex-wrap: wrap;
+    /* מאפשר מעבר לשורה חדשה */
+}
+
+.value {
+    flex: 1 1 180px;
+    /* מאפשר לכל כרטיס לגדול ולהתכווץ עם בסיס של 180px */
+    background: #f3eadb;
+    /* צבע רקע קרם */
+    padding: 18px;
+    /* רווח פנימי */
+    border-radius: 16px;
+    /* פינות מעוגלות */
+}
+
+@media(max-width:760px) {
+
+    /* מופעל במסכים ברוחב 760px ומטה */
+    .form-wrap,
+    .about-grid {
+        grid-template-columns: 1fr;
+        /* משנה את המבנה לעמודה אחת */
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        /* מציג את שדות הטופס אחד מתחת לשני */
+    }
+
+    .field.full {
+        grid-column: auto;
+        /* מבטל את הצורך של שדה מלא לתפוס שתי עמודות */
+    }
+}

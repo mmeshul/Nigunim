@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="אתר מוזיקה יהודית וחסידית">
+    <title>הצטרפות | ניגונים</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../CSS-with-Hebrew-comments/common_commented.css">
+    <link rel="stylesheet" href="../CSS-with-Hebrew-comments/forms_commented.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner"><a class="logo" href="../index.html"><span
+                    class="logo-mark">♫</span><span>ניגונים</span></a>
+            <nav aria-label="ניווט ראשי">
+                <ul class="nav-list">
+                    <li><a class="nav-link " href="../index.html">דף הבית</a></li>
+                    <li><a class="nav-link " href="../pages/hasidic.html">שירים חסידיים</a></li>
+                    <li><a class="nav-link " href="../pages/jewish.html">שירים יהודיים</a></li>
+                    <li><a class="nav-link " href="../pages/about1.html">אודות</a></li>
+                    <li><a class="nav-link active" href="../pages/join.html">הצטרפות</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="page-hero">
+            <p class="eyebrow">בואו להיות חלק</p>
+            <h1>הצטרפות לקהילה</h1>
+            <p>מלאו את הפרטים וקבלו עדכונים על שירים חדשים.</p>
+        </section>
+        <section class="section">
+            <div class="container form-wrap">
+                <aside class="info-card">
+                    <h2>למה להצטרף?</h2>
+                    <ul class="benefits">
+                        <li>המלצות מוזיקה חדשות</li>
+                        <li>עדכונים על אמנים ושירים</li>
+                        <li>תוכן מותאם לסגנון האהוב</li>
+                    </ul>
+                </aside>
+                <form class="join-form" action="success.html" method="get">
+                    <div class="form-grid">
+                        <div class="field"><label for="full-name">שם מלא</label><input type="text" id="full-name"
+                                name="fullName" required minlength="2" placeholder="ישראל ישראלי"></div>
+                        <div class="field"><label for="email">דוא״ל</label><input type="email" id="email" name="email"
+                                required placeholder="name@example.com"></div>
+                        <div class="field"><label for="phone">טלפון</label><input type="tel" id="phone" name="phone"
+                                pattern="0[0-9]{8,9}" placeholder="0501234567"></div>
+                        <div class="field"><label for="birth-date">תאריך לידה</label><input type="date" id="birth-date"
+                                name="birthDate"></div>
+                        <div class="field full"><label for="style">סגנון מועדף</label><select id="style" name="style"
+                                required>
+                                <option value="">בחרו סגנון</option>
+                                <option>שירים חסידיים</option>
+                                <option>שירים יהודיים</option>
+                                <option>שניהם</option>
+                            </select></div>
+                        <div class="field full"><label for="message">איזה שיר תרצו להוסיף?</label><textarea id="message"
+                                name="message" rows="4" maxlength="200" placeholder="כתבו שם שיר ואמן..."></textarea>
+                        </div>
+                        <div class="field full"><label><input type="checkbox" name="terms" required> קראתי ואני מסכימ/ה
+                                לקבל עדכונים</label></div>
+                    </div>
+                    <div class="form-actions"><button class="btn" type="submit">שליחה</button><button
+                            class="btn secondary" type="reset">איפוס</button></div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>© 2026 ניגונים. כל הזכויות שמורות.</p>
+            <!-- <ul class="footer-links">
+                <li><a href="../pages/about.html">אודות</a></li>
+                <li><a href="../pages/join.html">יצירת קשר</a></li>
+            </ul> -->
+        </div>
+    </footer>
+</body>
+
+</html>

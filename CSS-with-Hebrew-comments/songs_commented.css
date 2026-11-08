@@ -1,0 +1,160 @@
+.songs-layout {
+    display: flex;
+    /* מסדר את עטיפת הקטגוריה ורשימת השירים זה לצד זה */
+    gap: 32px;
+    /* רווח בין שני האזורים */
+    align-items: flex-start;
+    /* מיישר את האזורים לחלק העליון */
+}
+
+.cover-panel {
+    position: sticky;
+    /* משאיר את עטיפת הקטגוריה במקום בזמן גלילה */
+    top: 110px;
+    /* המרחק מהחלק העליון שבו היא נעצרת */
+    flex: 0 1 38%;
+    /* נותן לפאנל רוחב בסיסי של 38% ומאפשר לו להתכווץ */
+    background: var(--paper);
+    /* רקע בהיר */
+    padding: 14px;
+    /* רווח פנימי */
+    border-radius: 26px;
+    /* פינות מעוגלות */
+    box-shadow: var(--shadow);
+    /* מוסיף צל */
+}
+
+.cover-panel img {
+    border-radius: 18px;
+    /* מעגל את פינות התמונה */
+    aspect-ratio: 1;
+    /* שומר על יחס של ריבוע */
+    object-fit: cover;
+    /* ממלא את הריבוע בתמונה בלי לעוות אותה */
+}
+
+.song-list {
+    flex: 1;
+    /* גורם לרשימת השירים לתפוס את המקום הפנוי */
+    display: flex;
+    /* משתמש ב-Flexbox */
+    flex-direction: column;
+    /* מסדר את השירים אחד מתחת לשני */
+    gap: 16px;
+    /* רווח בין כרטיסי השירים */
+}
+
+.song-card {
+    display: flex;
+    /* מסדר את פרטי השיר בשורה */
+    align-items: center;
+    /* ממרכז את התוכן לגובה */
+    gap: 18px;
+    /* רווח בין המספר, פרטי השיר וקישור ההאזנה */
+    background: var(--paper);
+    /* רקע בהיר */
+    padding: 18px;
+    /* רווח פנימי */
+    border-radius: 19px;
+    /* פינות מעוגלות */
+    border: 1px solid rgba(199, 154, 67, .22);
+    /* מסגרת זהב עדינה */
+    transition: .25s;
+    /* מעבר חלק לאפקט hover */
+}
+
+.song-card:hover {
+    transform: translateX(-7px);
+    /* מזיז מעט את הכרטיס במעבר עכבר */
+    box-shadow: var(--shadow);
+    /* מוסיף צל במעבר עכבר */
+}
+
+.song-number {
+    flex: 0 0 45px;
+    /* שומר על רוחב קבוע של 45px */
+    height: 45px;
+    /* גובה של 45px */
+    display: grid;
+    /* משתמש ב-Grid למרכוז המספר */
+    place-items: center;
+    /* ממרכז את המספר */
+    border-radius: 50%;
+    /* הופך את האזור לעיגול */
+    background: var(--ink);
+    /* רקע כחול כהה */
+    color: var(--gold);
+    /* מספר בצבע זהב */
+    font-weight: 900;
+    /* מספר מודגש מאוד */
+}
+
+.song-info {
+    flex: 1;
+    /* גורם לאזור פרטי השיר לתפוס את המקום הפנוי */
+}
+
+.song-info h2 {
+    font-size: 1.15rem;
+    /* מגדיל מעט את שם השיר */
+    margin: 0;
+    /* מבטל את הרווח האוטומטי של הכותרת */
+}
+
+.song-info p {
+    margin: 2px 0;
+    /* רווח קטן מעל ומתחת לשם הזמר */
+    color: var(--muted);
+    /* צבע אפור לטקסט המשני */
+}
+
+.listen {
+    color: var(--wine);
+    /* צבע בורדו לקישור ההאזנה */
+    font-weight: 800;
+    /* מדגיש את הקישור */
+}
+
+.media-box {
+    margin-top: 26px;
+    /* רווח מעל אזור נגן המוזיקה */
+    padding: 20px;
+    /* רווח פנימי */
+    background: #f0e7d7;
+    /* רקע קרם */
+    border-radius: 18px;
+    /* פינות מעוגלות */
+}
+
+.media-box audio {
+    width: 100%;
+    /* נגן האודיו תופס את כל הרוחב */
+    margin-top: 10px;
+    /* רווח מעל הנגן */
+}
+
+@media(max-width:760px) {
+
+    /* מופעל במסכים ברוחב 760px ומטה */
+    .songs-layout {
+        flex-direction: column;
+        /* מסדר את עטיפת הקטגוריה ורשימת השירים אחד מתחת לשני */
+    }
+
+    .cover-panel {
+        position: static;
+        /* מבטל את ההצמדה בזמן גלילה במסך קטן */
+        width: 100%;
+        /* הפאנל תופס את כל הרוחב */
+    }
+
+    .song-card {
+        align-items: flex-start;
+        /* מיישר את תוכן הכרטיס לחלק העליון */
+    }
+
+    .listen {
+        display: none;
+        /* מסתיר את קישור ההאזנה במסכים קטנים */
+    }
+}
